@@ -10,8 +10,26 @@ tasksAPIManagerObject.getAllTasksFromAPI()
 
 //Click event listener for New Task button
 document
-.querySelector("#newTaskButton")
-.addEventListener("click", () => {
-    console.log("You clicked the New Task Button")
-eventListenerObject.newTaskForm(); 
-});
+    .querySelector("#newTaskButton")
+    .addEventListener("click", () => {
+        console.log("You clicked the New Task Button")
+        eventListenerObject.newTaskForm();
+    });
+
+document
+    .querySelector("body")
+    .addEventListener("click", () => {
+        if (event.target.id.includes("newTaskSave")) {
+            console.log("You clicked the Save Task Button")
+            eventListenerObject.saveNewTask(event)
+        }
+    });
+
+document
+    .querySelector("#tasksContainer")
+    .addEventListener("change", function () {
+        if (event.target.checked) {
+            const taskId = event.target.id.split("-")[3]
+            eventListenerObject.markAsComplete(taskId)
+        }
+    });
