@@ -4,7 +4,8 @@ const buildTaskList = (eachTask) => {
     <div id="tasks-${eachTask.id}">
     <p> Task - ${eachTask.name}</p>
     <p> Expected Completion Date: ${eachTask.completion_date}&nbsp;&nbsp;
-    Completed:<input type="checkbox" name="task-complete-chkbx" id="task-complete-chkbx-${eachTask.id}">
+    Completed:<input type="checkbox" name="task-complete-chkbx" id="task-complete-chkbx-${eachTask.id}"><br>
+    <button id="editTask-Btn">Edit</button>
     <p>-----------------------------------------------------------------------------------</p>
     </div>
 `
