@@ -28,8 +28,76 @@
       "id": 2,
       "name": "Nutshell project",
       "completion_date": "05/23/2020",
+<<<<<<< HEAD
       "completed": "False",
       "userId": 2
+=======
+      "completed": "true",
+      "userId": 2
+    },
+    {
+      "id": 3,
+      "name": "Give PSH a bath",
+      "completion_date": "05/20/2020",
+      "completed": "False",
+      "userId": 1
+    },
+    {
+      "name": "take out the trash",
+      "completion_date": "05/21/2020",
+      "completed": "true",
+      "userId": 2,
+      "id": 4
+    },
+    {
+      "name": "walk the dog",
+      "completion_date": "05/20/2020",
+      "completed": "true",
+      "userId": 2,
+      "id": 5
+    },
+    {
+      "name": "workout",
+      "completion_date": "05/22/2020",
+      "completed": "true",
+      "userId": 2,
+      "id": 6
+    },
+    {
+      "name": "Dust",
+      "completion_date": "05/24/2020",
+      "completed": "False",
+      "userId": 2,
+      "id": 7
+    },
+    {
+      "name": "wash dishes",
+      "completion_date": "05/25/2020",
+      "completed": "False",
+      "userId": 2,
+      "id": 8
+    },
+    {
+      "name": "clean bathroom",
+      "completion_date": "05/20/2020",
+      "completed": "true",
+      "userId": 2,
+      "id": 9
+    },
+    {
+      "name": "something new to do",
+      "completion_date": "05/21/2020",
+      "completed": "false",
+      "userId": 2,
+      "id": 10
+    },
+    {
+      "name": "Sweep porch",
+      "completion_date": "05/24/2020",
+      "completed": "false",
+      "userId": 2,
+      "id": 11
+>>>>>>> master
     }
   ],
   "events": [
@@ -76,6 +144,7 @@
       "synopsis": "Ben the Therapy Dog works for a Massachusetts police department but he has been accused of theft. He supposedly stole the toys from the Santa Foundation, a local charity.  The...",
       "url": "https://www.oddee.com/this-police-therapy-dog-was-accused-of-stealing-donated-childrens-toys-51037/",
       "userId": 3
+<<<<<<< HEAD
     },
     {
       "headline": "5-Year-Old Pulled Over on his Way to California to Buy a Car",
@@ -83,6 +152,8 @@
       "url": "https://www.oddee.com/5-year-old-pulled-over-on-his-way-to-california-to-buy-a-car-52611/",
       "userId": 2,
       "id": 10
+=======
+>>>>>>> master
     }
   ],
   "chatMessages": [
