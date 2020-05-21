@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
@@ -13,11 +14,12 @@
 
 
           <!-- main heading -->
+          
     <section id="mainHeading"class="mainHeading">
        <h1 class="welcome">Welcome to Nutshell</h1>
         <h2 class="dashboard">My Dashboard</h2>
      </section>
-
+     <article class = "page-parent">
             <!-- news section -->
     <section id="newsSection" class="newsSection">
       <h3 class="newsArticles">News Articles</h3>
@@ -52,10 +54,20 @@
        <!-- events will go here -->
         </div>
         <button id="newEventButton" class="newEventButton">New Event</button>
+        <div id="eventFieldset"></div>
     </section>
+</article>
 
 
 
-
+<script src="script.js"></script>
 </body>
 </html>
+<fieldset>
+<input id="newEventName" placeholder="Event Name">
+<input id="newEventDate" placeholder="Event Date">
+<input id="newEventLocation" placeholder="Event Location">
+</fieldset>
+<div>
+    <button id ="eventSave">save</button>
+</div>
