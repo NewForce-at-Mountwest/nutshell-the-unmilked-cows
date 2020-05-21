@@ -60,14 +60,14 @@
       "id": 6
     },
     {
-      "name": "Dust",
+      "name": "mow the lawn",
       "completion_date": "05/24/2020",
       "completed": "False",
       "userId": 2,
       "id": 7
     },
     {
-      "name": "wash dishes",
+      "name": "wash clothes",
       "completion_date": "05/25/2020",
       "completed": "False",
       "userId": 2,
@@ -81,7 +81,7 @@
       "id": 9
     },
     {
-      "name": "something new to do",
+      "name": "edit the name of the task",
       "completion_date": "05/21/2020",
       "completed": "false",
       "userId": 2,
@@ -93,6 +93,27 @@
       "completed": "false",
       "userId": 2,
       "id": 11
+    },
+    {
+      "name": "help with dishes",
+      "completion_date": "05/24/2020",
+      "completed": "false",
+      "userId": 2,
+      "id": 12
+    },
+    {
+      "name": "new thing",
+      "completion_date": "05/21/2020",
+      "completed": "false",
+      "userId": 2,
+      "id": 13
+    },
+    {
+      "name": "ahslhfdsah",
+      "completion_date": "05/21/2020",
+      "completed": "true",
+      "userId": 2,
+      "id": 14
     }
   ],
   "events": [
