@@ -1,4 +1,5 @@
 import CardMaker from "./newsCardMaker.js"
+import newsApiManager from "./newsApiManager.js"
 
 //event listener object
 const newsEventlisters = {
