@@ -1,3 +1,11 @@
+import tasksAPIManagerObject from "./tasks-APIManager.js"
+import printAllTasks from "./tasks-DOMPrinter.js"
+import eventListenerObject from "./tasks-EventListeners.js"
+import newsApiManager from "./newsApiManager.js"
+import CardMaker from "./newsCardMaker.js"
+import newsEventlisters from "./newsEventListeners.js"
+
+
 //FETCHES NEWS DATA FROM API AND PRINTS IT TO THE DOM
 newsApiManager.getAllArticlesFromAPI() .then((newsArticles) => {
     newsArticles.forEach((newsArticle) => {
@@ -14,9 +22,7 @@ newsEventlisters.deleteButton();
 newsEventlisters.editButton();
 newsEventlisters.saveEdit()
 
-// import tasksAPIManagerObject from "./tasks-APIManager.js"
-// import printAllTasks from "./tasks-DOMPrinter.js"
-// import eventListenerObject from "./tasks-EventListeners.js"
+
 // Tasks events on page load - Pat Shaver
 //Gets all existing tasks from nutshell api for logged in user, which is hardcoded as the DM username (Derek- userId:2) and Prints them to the taskContainer on page load
 tasksAPIManagerObject.getAllTasksFromAPI()

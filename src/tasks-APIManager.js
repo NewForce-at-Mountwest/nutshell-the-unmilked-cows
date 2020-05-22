@@ -53,5 +53,5 @@ const tasksAPIManager = {
         })
     }
 }
-// export default tasksAPIManager;
+export default tasksAPIManager;
 
