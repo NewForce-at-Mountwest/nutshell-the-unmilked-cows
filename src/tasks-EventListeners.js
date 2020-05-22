@@ -36,7 +36,28 @@ const eventListenerObject = {
         .patchTask(taskId)
         .then(tasksAPIManager.getAllTasksFromAPI)
         .then(printAllTasks);
+    },
+
+    printEditForm: () => {
+        const primaryKey = event.target.id.split("-")[2]
+        const taskToEdit = document.querySelector(`#task-name-${primaryKey}`)
+        tasksAPIManager.getOneTask(primaryKey)
+        .then (singleTaskObject => {
+        taskToEdit.innerHTML =`<section id="editedTaskObject-${singleTaskObject.id}">
+        <i>Edit Task Name>>&nbsp;&nbsp;<input type="text" id="editedTaskName-${singleTaskObject.id}" value="${singleTaskObject.name}">`
+        })
+    },
+
+    taskNameSave: (event) => {
+        const primaryKey = event.target.id.split("-")[1]
+        const taskNameValue = event.target.value
+        tasksAPIManager
+        .patchName(primaryKey,taskNameValue)
+        .then (tasksAPIManager.getAllTasksFromAPI)
+        .then (printAllTasks)
     }
 }
 
 // export default eventListenerObject
+
+export default eventListenerObject

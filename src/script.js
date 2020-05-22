@@ -49,3 +49,19 @@ document
             eventListenerObject.markAsComplete(taskId)
         }
     });
+
+document
+    .querySelector("#tasksContainer")
+    .addEventListener("click", () => {
+        if (event.target.id.includes("task-name")) {
+            eventListenerObject.printEditForm()
+            addEventListener("keypress", function (e) {
+                if (e.keyCode === 13) {
+                    eventListenerObject.taskNameSave(event)
+                }
+
+            })
+        }
+    });
+
+
