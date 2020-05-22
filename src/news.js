@@ -43,14 +43,16 @@ const newsEventlisters = {
       .querySelector("body")
       .addEventListener("click", function () {
         if (event.target.id === "newArticleSave") {
-            document.querySelector("#newsContainer").innerHTML ="";
-            console.log("click");
+          document.querySelector("#newsContainer").innerHTML = "";
+          console.log("click");
           const headlineValue = document.querySelector("#headlineInput").value;
           const synopsisValue = document.querySelector("#synopsisInput").value;
           const urlValue = document.querySelector("#urlInput").value;
+          const timeStamp = new Date().toLocaleString()
           console.log(headlineValue, synopsisValue, urlValue);
 
           const newArticleObject = {
+            timeStamp: timeStamp,
             headline: headlineValue,
             synopsis: synopsisValue,
             url: urlValue,
@@ -61,6 +63,7 @@ const newsEventlisters = {
             .post(newArticleObject)
             .then(newsApiManager.getAllArticlesFromAPI)
             .then((newsArticles) => {
+              document.querySelector("#newArticleFormDiv").innerHTML=""
               newsArticles.forEach((newsArticle) => {
                 console.log(newsArticle);
                 //NEED TO CLEAR OUT THE INPUT FEILD
@@ -82,16 +85,15 @@ const newsEventlisters = {
           const primaryKey = event.target.id.split("-")[1];
           console.log(primaryKey);
           newsApiManager.delete(primaryKey).then(() => {
-              document.querySelector("#newsContainer").innerHTML ="";
-              newsApiManager.getAllArticlesFromAPI().then((newsArticles) => {
-                  newsArticles.forEach(newsArticle => {
-                    document.querySelector("#newsContainer").innerHTML += CardMaker.buildArticlecard(newsArticle)
-                  });
-              
-              })
-
-          })
-          
+            document.querySelector("#newsContainer").innerHTML = "";
+            newsApiManager.getAllArticlesFromAPI().then((newsArticles) => {
+              newsArticles.forEach((newsArticle) => {
+                document.querySelector(
+                  "#newsContainer"
+                ).innerHTML += CardMaker.buildArticlecard(newsArticle);
+              });
+            });
+          });
         }
       });
   },
@@ -102,27 +104,90 @@ const newsEventlisters = {
       .addEventListener("click", function () {
         if (event.target.id.includes("editButton")) {
           console.log("edit click");
-          const primaryKey = event.target.id.split("-")[1]
-          console.log (primaryKey)
-         
+          const primaryKey = event.target.id.split("-")[1];
+          console.log(primaryKey);
+          const cardToReplace = document.querySelector(
+            `#newsCard-${primaryKey}`
+          );
+          console.log(cardToReplace);
+          fetch(`http://localhost:8088/newsArticles/${primaryKey}`)
+            .then((newsArticles) => newsArticles.json())
+            .then((newsArticle) => {
+              console.log(newsArticle);
+              cardToReplace.innerHTML = CardMaker.newsEditForm(newsArticle);
+            });
         }
       });
   },
+  saveEdit: () => {
+    document.querySelector("body").addEventListener("click", function () {
+      if (event.target.id.includes("editArticleSave")) {
+        console.log("click");
+        const primaryKey = event.target.id.split("-")[1];
+        console.log(primaryKey);
+        const editheadlineValue = document.querySelector("#editHeadlineInput")
+          .value;
+        const editsynopsisValue = document.querySelector("#editSynopsisInput")
+          .value;
+        const editurlValue = document.querySelector("#editUrlInput").value;
+        console.log(editheadlineValue, editsynopsisValue, editurlValue);
+
+        const editArticleObject = {
+          id: event.target.id.split("-")[1],
+          headline: editheadlineValue,
+          synopsis: editsynopsisValue,
+          url: editurlValue,
+          userId: 2,
+        };
+        console.log(editArticleObject);
+        fetch(`http://localhost:8088/newsArticles/${primaryKey}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(editArticleObject),
+        })
+          .then(newsApiManager.getAllArticlesFromAPI)
+          .then((newsArticles) => {
+            document.querySelector("#newsContainer").innerHTML=""
+            newsArticles.forEach((newsArticle) => {
+              console.log(newsArticle);
+              document.querySelector(
+                "#newsContainer"
+              ).innerHTML += CardMaker.buildArticlecard(newsArticle);
+            });
+          });
+      }
+    });
+  },
 };
+// .then((newsArticles) => {
+//   newsArticles.forEach((newsArticle) => {
+//     console.log(newsArticle);
+//     //NEED TO CLEAR OUT THE INPUT FEILD
+
+//     document.querySelector(
+//       "#newsContainer"
+//     ).innerHTML += CardMaker.buildArticlecard(newsArticle);
+//   });
+// });
 
 //MAKES HTML TO PRINT TO THE DOM
 const CardMaker = {
   //BUILDS THE CARD THAT PRINTS THE NEWS ARTICLES
   buildArticlecard: (newsArticle) => {
-    console.log(newsArticle);
+    // console.log(newsArticle);
     return `
+    <div id="newsCard-${newsArticle.id}">
+    <p>${newsArticle.timeStamp}</p>
     <h4>${newsArticle.headline}</h4>
     <P>${newsArticle.synopsis}</P>
     <form id ="button" action=${newsArticle.url}>
          <button type="submit">View Full Story</button>
       </form>
     <button id="deleteButton-${newsArticle.id}">Delete</button>
-    <button id="editButton-${newsArticle.id}">Edit</button>  
+    <button id="editButton-${newsArticle.id}">Edit</button> 
+    </div> 
       `;
   },
   //BULILDS THE FORM THAT WILL APPEAR WHEN THE NEW ARTICLE BUTTON IS PRESSED
@@ -136,21 +201,19 @@ const CardMaker = {
   <button id="newArticleSave">Save</button>
  `;
   },
-  newsEditForm: () => {
+  newsEditForm: (object) => {
     return `<form action="">
-    <input type="text" placeholder="Headline" value= ${newsArticle.headline}id="editHeadlineInput">
-    <input type="text" placeholder="Synopsis" value= ${newsArticle.synopsis}id="editSynopsisInput">
-    <input type="text" placeholder="URL" value= ${newsArticle.url}id="editUrlInput"> 
+    <input type="text" placeholder="Headline" value= "${object.headline}"id="editHeadlineInput">
+    <input type="text" placeholder="Synopsis" value= "${object.synopsis}"id="editSynopsisInput">
+    <input type="text" placeholder="URL" value= "${object.url}"id="editUrlInput"> 
 </form>
-<button id="editArticleSave">Save</button>
+<button id="editArticleSave-${object.id}">Save</button>
 `;
-  }
+  },
 };
-
-newsEventlisters.deleteButton();
-newsEventlisters.editButton();
 
 // document.querySelector("body").addEventListener("click", function(){
 //     if(event.target.id.includes("newArticleSave"))
 //     console.log ("click")
 // })
+Date.now()

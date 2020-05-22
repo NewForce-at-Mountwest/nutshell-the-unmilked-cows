@@ -28,10 +28,6 @@
       "id": 2,
       "name": "Nutshell project",
       "completion_date": "05/23/2020",
-<<<<<<< HEAD
-      "completed": "False",
-      "userId": 2
-=======
       "completed": "true",
       "userId": 2
     },
@@ -97,7 +93,6 @@
       "completed": "false",
       "userId": 2,
       "id": 11
->>>>>>> master
     }
   ],
   "events": [
@@ -126,6 +121,7 @@
   "newsArticles": [
     {
       "id": 1,
+      "timeStamp":"20/05/2020, 17:30:42",
       "headline": "Club Omaha Plans to Reopen but with Masks and Gloves",
       "synopsis": "The dancers at Omaha Adult Entertainment Club are returning back to work next week, but they will be a little more covered than they normally are. The dancers will shed...",
       "url": "https://www.oddee.com/club-omaha-plans-to-reopen-but-with-masks-and-gloves-52701/",
@@ -133,27 +129,19 @@
     },
     {
       "id": 2,
+      "timeStamp":"20/05/2020, 17:30:42",
       "headline": "Man In India Worships Trump As A God",
       "synopsis": "The Indian Constitution guarantees freedom of religion, but some people take it too far. Even to the extent of worshiping Trump... Bussa Krishna Before Donald Trump became a leader of...",
       "url": "https://www.oddee.com/man-in-india-worships-trump-as-a-god-51659/",
       "userId": 2
     },
     {
-      "id": 3,
-      "headline": "This Police Therapy Dog Was Accused of Stealing Donated Children’s Toys",
-      "synopsis": "Ben the Therapy Dog works for a Massachusetts police department but he has been accused of theft. He supposedly stole the toys from the Santa Foundation, a local charity.  The...",
-      "url": "https://www.oddee.com/this-police-therapy-dog-was-accused-of-stealing-donated-childrens-toys-51037/",
-      "userId": 3
-<<<<<<< HEAD
-    },
-    {
-      "headline": "5-Year-Old Pulled Over on his Way to California to Buy a Car",
-      "synopsis": "Remember when I wrote about the dog that got pulled over behind the wheel of the car in Washington? Well, this story is just as weird when the one behind the wheel was a 5-year-old boy. His story goes likes this, he was driving to California so he could buy a Lamborghini. He didn’t really …",
-      "url": "https://www.oddee.com/5-year-old-pulled-over-on-his-way-to-california-to-buy-a-car-52611/",
-      "userId": 2,
-      "id": 10
-=======
->>>>>>> master
+      "id": 4,
+      "timeStamp":"20/05/2020, 17:30:42",
+      "headline": "edit",
+      "synopsis": "edit",
+      "url": "edit",
+      "userId": 2
     }
   ],
   "chatMessages": [
