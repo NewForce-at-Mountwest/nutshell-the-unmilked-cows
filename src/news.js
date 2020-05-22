@@ -212,8 +212,3 @@ const CardMaker = {
   },
 };
 
-// document.querySelector("body").addEventListener("click", function(){
-//     if(event.target.id.includes("newArticleSave"))
-//     console.log ("click")
-// })
-Date.now()
