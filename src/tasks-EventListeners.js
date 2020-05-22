@@ -1,7 +1,5 @@
-// import tasksAPIManager from "./tasks-APIManager.js"
-
-// import tasksAPIManager from "./tasks-APIManager.js";
-// import printAllTasks from "./tasks-DOMPrinter.js";
+import tasksAPIManager from "./tasks-APIManager.js";
+import printAllTasks from "./tasks-DOMPrinter.js";
 
 // This is called a "factory function". It builds and returns an object. We don't need to export it, because we only need access to it in this file.
 const buildTaskObjectFromForm = () => {
@@ -58,6 +56,5 @@ const eventListenerObject = {
     }
 }
 
-// export default eventListenerObject
 
 export default eventListenerObject
