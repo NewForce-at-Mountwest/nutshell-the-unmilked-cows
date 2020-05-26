@@ -179,7 +179,7 @@
     {
       "name": "edit the name of the task",
       "completion_date": "05/21/2020",
-      "completed": "false",
+      "completed": "true",
       "userId": 2,
       "id": 10
     },
@@ -200,7 +200,7 @@
     {
       "name": "new thing",
       "completion_date": "05/21/2020",
-      "completed": "false",
+      "completed": "true",
       "userId": 2,
       "id": 13
     },
@@ -261,13 +261,18 @@
     },
     {
       "id": 2,
-      "message": "Yeah, I'm thinking about it...",
+      "message": "Absolutely!",
       "userId": 1
     },
     {
       "id": 3,
       "message": "I'm havin a B-day Party??!!",
       "userId": 3
+    },
+    {
+      "message": "For sure!!",
+      "userId": 2,
+      "id": 4
     }
   ]
 }

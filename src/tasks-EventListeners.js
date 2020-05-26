@@ -56,5 +56,4 @@ const eventListenerObject = {
     }
 }
 
-
 export default eventListenerObject
