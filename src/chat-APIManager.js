@@ -4,17 +4,17 @@ const chatAPIManager = {
         return fetch(
             "http://localhost:8088/chatMessages")
             .then(response => response.json())
-    }
+    },
 
-    // postChat: (msgToPost) => {
-    //     return fetch("http://localhost:8088/chats", {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         },
-    //         body: JSON.stringify(msgToPost),
-    //     });
-    // },
+     postChat: (msgToPost) => {
+         return fetch("http://localhost:8088/chatMessages", {
+             method: "POST",
+             headers: {
+                 "Content-Type": "application/json",
+             },
+             body: JSON.stringify(msgToPost),
+         });
+     }
 
     // patchTask: (taskIdToPatch) => {
     //     return fetch(`http://localhost:8088/tasks/${taskIdToPatch}`, {

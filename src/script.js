@@ -6,6 +6,7 @@ import CardMaker from "./newsCardMaker.js"
 import newsEventlisters from "./newsEventListeners.js"
 import chatAPIManagerObject from "./chat-APIManager.js"
 import printAllMsgs from "./chat-DOMPrinter.js"
+import chatEventListenerObject from "./chat-EventListener.js"
 
 //Task Module starts here
 
@@ -96,20 +97,18 @@ chatAPIManagerObject.getAllMsgsFromAPI()
 //         }
 //     });
 
-//Click event listener for editing Task name and hitting enter to save the new name
-// document
-//     .querySelector("#chatContainer")
-//     .addEventListener("click", () => {
-//         if (event.target.id.includes("chat-name")) {
-//             eventListenerObject.printEditForm()
-//             addEventListener("keypress", function (e) {
-//                 if (e.keyCode === 13) {
-//                     eventListenerObject.newChatMsgSave(event)
-//                 }
+//Click event listener for entering new chat message and hitting enter to save it to the chat messages container
+ document
+     .querySelector("#newChatMsg")
+     .addEventListener("keypress", function(e) {
+         if ((e.keyCode === 13)) {
+             console.log(event.target.id)
+             chatEventListenerObject.saveNewChat(event)
+                 }
 
-//             })
-//         }
-//     });
+             });
+         
+     
 
 //FETCHES NEWS DATA FROM API AND PRINTS IT TO THE DOM
 newsApiManager.getAllArticlesFromAPI() .then((newsArticles) => {
