@@ -134,6 +134,29 @@ console.log(eventTarget)
 //pats code from here down
 
 //Tasks events on page load - Pat Shaver
+import newsApiManager from "./newsApiManager.js"
+import CardMaker from "./newsCardMaker.js"
+import newsEventlisters from "./newsEventListeners.js"
+
+
+//FETCHES NEWS DATA FROM API AND PRINTS IT TO THE DOM
+newsApiManager.getAllArticlesFromAPI() .then((newsArticles) => {
+    newsArticles.forEach((newsArticle) => {
+  document.querySelector("#newsContainer").innerHTML+= CardMaker.buildArticlecard(newsArticle)
+})
+})
+
+
+
+
+newsEventlisters.newArticleButton();
+newsEventlisters.newArticleSaveButton()
+newsEventlisters.deleteButton();
+newsEventlisters.editButton();
+newsEventlisters.saveEdit()
+
+
+// Tasks events on page load - Pat Shaver
 //Gets all existing tasks from nutshell api for logged in user, which is hardcoded as the DM username (Derek- userId:2) and Prints them to the taskContainer on page load
 tasksAPIManagerObject.getAllTasksFromAPI()
     .then((parsedTasks) => {
@@ -165,3 +188,19 @@ document
             eventListenerObject.markAsComplete(taskId)
         }
     });
+
+document
+    .querySelector("#tasksContainer")
+    .addEventListener("click", () => {
+        if (event.target.id.includes("task-name")) {
+            eventListenerObject.printEditForm()
+            addEventListener("keypress", function (e) {
+                if (e.keyCode === 13) {
+                    eventListenerObject.taskNameSave(event)
+                }
+
+            })
+        }
+    });
+
+
