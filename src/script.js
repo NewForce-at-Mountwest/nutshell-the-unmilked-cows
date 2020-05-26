@@ -69,13 +69,33 @@ chatAPIManagerObject.getAllMsgsFromAPI()
         printAllMsgs(parsedMsgs)
     });
 
-//Click event listener for New Task button
-// document
-//     .querySelector("#newChatButton")
-//     .addEventListener("click", () => {
-//         console.log("You clicked the New Chat Button")
-//         eventListenerObject.newChatForm();
-//     });
+//Click event listener for entering new chat message and hitting enter to save it to the chat messages container
+document
+    .querySelector("#newChatMsg")
+    .addEventListener("keypress", function (e) {
+        if ((e.keyCode === 13)) {
+            console.log(event.target.id)
+            chatEventListenerObject.saveNewChat(event)
+        }
+
+    });
+
+document
+.querySelector("#chatContainer")
+.addEventListener("click", ()=>{
+    console.log(event.target.id)
+    if(event.target.id.includes("chat-msg")) {
+        chatEventListenerObject.printEditMsg()
+        addEventListener("keypress", function (e) {
+            if (e.keyCode === 13) {
+                chatEventListenerObject.editedMsgSave(event)
+            }
+
+        })
+    }
+});
+    
+
 
 //Click event listener for Save New Task button    
 // document
@@ -97,24 +117,15 @@ chatAPIManagerObject.getAllMsgsFromAPI()
 //         }
 //     });
 
-//Click event listener for entering new chat message and hitting enter to save it to the chat messages container
- document
-     .querySelector("#newChatMsg")
-     .addEventListener("keypress", function(e) {
-         if ((e.keyCode === 13)) {
-             console.log(event.target.id)
-             chatEventListenerObject.saveNewChat(event)
-                 }
 
-             });
-         
-     
+
+
 
 //FETCHES NEWS DATA FROM API AND PRINTS IT TO THE DOM
-newsApiManager.getAllArticlesFromAPI() .then((newsArticles) => {
+newsApiManager.getAllArticlesFromAPI().then((newsArticles) => {
     newsArticles.forEach((newsArticle) => {
-  document.querySelector("#newsContainer").innerHTML+= CardMaker.buildArticlecard(newsArticle)
-})
+        document.querySelector("#newsContainer").innerHTML += CardMaker.buildArticlecard(newsArticle)
+    })
 })
 
 newsEventlisters.newArticleButton();
