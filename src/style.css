@@ -1,0 +1,32 @@
+.mainHeading {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(18, 18, 122);
+    color: aliceblue;
+    padding: 1em;
+    
+}
+
+.page-parent {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border: solid rgb(255, 8, 0);
+    justify-content: space-evenly;
+    
+
+
+}
+
+.newsSection {
+    border: solid black;
+}
+
+.taskSection {
+    border: solid black;
+    align-self: flex-end;
+}
+
+.eventSection {
+    border: solid black;
+}
